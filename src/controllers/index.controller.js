@@ -16,7 +16,7 @@ const obtenerUsuarios = async (req, res) => {
 
 const crearUsuario = async (req, res) => {
     const {nick, nombre, apellidoPa, apellidoMa, constra, rol, correo } = req.body;
-    const respuesta = await pool.query('INSERT INTO usuario (nick, nombre, apellidoPa, apellidoMa, constra, rol, correo) VALUES ($1 $2 $3 $4 $5 $6 $7)', [nick, nombre, apellidoPa, apellidoMa, constra, rol, correo]);
+    const respuesta = await pool.query('INSERT INTO usuario (nick, nombre, apellidoPa, apellidoMa, constra, rol, correo) VALUES ($1, $2, $3, $4, $5, $6, $7)', [nick, nombre, apellidoPa, apellidoMa, constra, rol, correo]);
     res.json({
         message: 'Creado',
         body: {
